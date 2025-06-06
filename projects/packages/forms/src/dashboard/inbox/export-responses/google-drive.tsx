@@ -12,7 +12,7 @@ import clsx from 'clsx';
  */
 import { config } from '../..';
 import { useIntegrationStatus } from '../../../blocks/contact-form/components/jetpack-integrations-modal/hooks/use-integration-status';
-import { PARTIAL_RESPONSES_PATH, PREFERRED_VIEW } from '../../../util/get-preferred-responses-view';
+import { PARTIAL_RESPONSES_PATH } from '../../../util/get-preferred-responses-view';
 
 const GoogleDriveExport = ( { onExport, autoConnect = false } ) => {
 	const { integration, refreshStatus } = useIntegrationStatus( 'google-drive' );
@@ -21,8 +21,7 @@ const GoogleDriveExport = ( { onExport, autoConnect = false } ) => {
 	const autoConnectOpened = useRef( false );
 
 	const { isUserConnected, handleConnectUser, userIsConnecting, isOfflineMode } = useConnection( {
-		redirectUri:
-			PARTIAL_RESPONSES_PATH + ( PREFERRED_VIEW === 'classic' ? '' : '&connect-gdrive=true' ),
+		redirectUri: PARTIAL_RESPONSES_PATH + '&connect-gdrive=true',
 	} );
 
 	const pollForConnection = useCallback( () => {
