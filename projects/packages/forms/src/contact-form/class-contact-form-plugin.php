@@ -1084,11 +1084,13 @@ class Contact_Form_Plugin {
 	}
 
 	/**
-	 * Add the 'Form Responses' menu item as a submenu of Feedback.
+	 * Add Feedback menu item for backward compatibility with Polldaddy.
 	 */
 	public function admin_menu() {
 		$slug = 'feedback';
 
+		// Do we still need to create the Feedback menu item for polldaddy?
+		// WPCOM already handles this. Self hosted will depend on us until we produce a new release for polldaddy.
 		if ( is_plugin_active( 'polldaddy/polldaddy.php' ) || ! Jetpack_Forms::is_legacy_menu_item_retired() ) {
 			add_menu_page(
 				__( 'Feedback', 'jetpack-forms' ),
