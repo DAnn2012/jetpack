@@ -54,12 +54,8 @@ class Dashboard {
 
 	/**
 	 * Creates a new Dashboard instance.
-	 *
-	 * @param Dashboard_View_Switch|null $switch Dashboard_View_Switch instance to use.
 	 */
-	public function __construct( ?Dashboard_View_Switch $switch = null ) {
-		$this->switch = $switch ?? new Dashboard_View_Switch();
-
+	public function __construct() {
 		// Set the integrations tab feature flag
 		self::$show_integrations = apply_filters( 'jetpack_forms_enable_integrations_tab', true );
 	}
@@ -77,15 +73,13 @@ class Dashboard {
 		if ( isset( $_GET['page'] ) && $_GET['page'] === self::ADMIN_SLUG ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 			remove_all_actions( 'admin_notices' );
 		}
-
-		$this->switch->init();
 	}
 
 	/**
 	 * Load JavaScript for the dashboard.
 	 */
 	public function load_admin_scripts() {
-		if ( ! $this->switch->is_modern_view() && ! $this->switch->is_jetpack_forms_admin_page() ) {
+		if ( ! Dashboard_View_Switch::is_jetpack_forms_admin_page() ) {
 			return;
 		}
 
@@ -224,8 +218,8 @@ class Dashboard {
 			'hasFeedback'             => $this->has_feedback(),
 			'hasAI'                   => $has_ai,
 			'enableIntegrationsTab'   => self::$show_integrations,
-			'renderMigrationPage'     => $this->switch->is_jetpack_forms_announcing_new_menu(),
-			'dashboardURL'            => $this->switch->get_forms_admin_url(),
+			'renderMigrationPage'     => Dashboard_View_Switch::is_jetpack_forms_announcing_new_menu(),
+			'dashboardURL'            => Dashboard_View_Switch::get_forms_admin_url(),
 		);
 		if ( ! empty( $extra_config ) ) {
 			$config = array_merge( $config, $extra_config );

@@ -313,7 +313,7 @@ CSS
 	 *
 	 * @return boolean
 	 */
-	public function is_jetpack_forms_admin_page() {
+	public static function is_jetpack_forms_admin_page() {
 		$screen = get_current_screen();
 		return $screen && $screen->id === 'jetpack_page_jetpack-forms-admin';
 	}

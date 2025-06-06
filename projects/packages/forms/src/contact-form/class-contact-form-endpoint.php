@@ -861,9 +861,8 @@ class Contact_Form_Endpoint extends \WP_REST_Posts_Controller {
 		// Refactored to use a switch statement for plugin-specific logic.
 		switch ( $plugin_slug ) {
 			case 'akismet':
-				$dashboard_view_switch                         = new Dashboard_View_Switch();
 				$response['isConnected']                       = class_exists( 'Jetpack' ) && \Jetpack::is_akismet_active();
-				$response['details']['formSubmissionsSpamUrl'] = $dashboard_view_switch->get_forms_admin_url( 'spam' );
+				$response['details']['formSubmissionsSpamUrl'] = Dashboard_View_Switch::get_forms_admin_url( 'spam' );
 				$response['needsConnection']                   = true;
 				break;
 			case 'zero-bs-crm':
