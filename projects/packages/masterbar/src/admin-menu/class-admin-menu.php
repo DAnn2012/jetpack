@@ -417,8 +417,9 @@ class Admin_Menu extends Base_Admin_Menu {
 	 */
 	public function register_nav_unification_jetpack_menus() {
 		Jetpack_Admin_UI_Admin::add_menu(
-			esc_attr__( 'Activity Log', 'jetpack-masterbar' ),
-			__( 'Activity Log', 'jetpack-masterbar' ),
+			/** "Activity Log" is a product name, do not translate. */
+			'Activity Log',
+			'Activity Log',
 			'manage_options',
 			'https://wordpress.com/activity-log/' . $this->domain,
 			/**
@@ -429,8 +430,9 @@ class Admin_Menu extends Base_Admin_Menu {
 		);
 
 		Jetpack_Admin_UI_Admin::add_menu(
-			esc_attr__( 'Backup', 'jetpack-masterbar' ),
-			__( 'Backup', 'jetpack-masterbar' ),
+			/** "Backup" is a product name, do not translate. */
+			'Backup',
+			'Backup',
 			'manage_options',
 			'https://wordpress.com/backup/' . $this->domain,
 			/**
