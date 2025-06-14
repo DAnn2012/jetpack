@@ -183,8 +183,9 @@ function wpcom_add_jetpack_submenu() {
 	// Add submenu items that link to WordPress.com.
 	add_submenu_page(
 		'jetpack',
-		__( 'Activity Log', 'jetpack-mu-wpcom' ),
-		__( 'Activity Log', 'jetpack-mu-wpcom' ),
+		/** "Activity Log" is a product name, do not translate. */
+		'Activity Log',
+		'Activity Log',
 		'manage_options',
 		$activity_log_url,
 		null // @phan-suppress-current-line PhanTypeMismatchArgumentProbablyReal -- Core should ideally document null for no-callback arg. https://core.trac.wordpress.org/ticket/52539.
@@ -192,8 +193,9 @@ function wpcom_add_jetpack_submenu() {
 
 	add_submenu_page(
 		'jetpack',
-		__( 'VaultPress', 'jetpack-mu-wpcom' ),
-		__( 'VaultPress', 'jetpack-mu-wpcom' ),
+		/** "VaultPress" is a product name, do not translate. */
+		'VaultPress',
+		'VaultPress',
 		'manage_options',
 		$vaultpress_url,
 		null // @phan-suppress-current-line PhanTypeMismatchArgumentProbablyReal -- Core should ideally document null for no-callback arg. https://core.trac.wordpress.org/ticket/52539.
@@ -211,8 +213,9 @@ function wpcom_add_jetpack_submenu() {
 	if ( $is_atomic_site ) {
 		add_submenu_page(
 			'jetpack',
-			__( 'Scan', 'jetpack-mu-wpcom' ),
-			__( 'Scan', 'jetpack-mu-wpcom' ),
+			/** "Scan" is a product name, do not translate. */
+			'Scan',
+			'Scan',
 			'manage_options',
 			$scan_url,
 			null // @phan-suppress-current-line PhanTypeMismatchArgumentProbablyReal -- Core should ideally document null for no-callback arg. https://core.trac.wordpress.org/ticket/52539.
