@@ -1676,24 +1676,7 @@ class Contact_Form extends Contact_Form_Shortcode {
 			$to = get_option( 'admin_email' );
 		}
 
-		if ( ! $this->has_verified_jwt ) {
-			// Make sure we're processing the form we think we're processing... probably a redundant check.
-			if ( $widget ) {
-				if ( isset( $_POST['contact-form-id'] ) && 'widget-' . $widget !== $_POST['contact-form-id'] ) { // phpcs:Ignore WordPress.Security.NonceVerification.Missing -- check done by caller process_form_submission()
-					return false;
-				}
-			} elseif ( $block_template ) {
-				if ( isset( $_POST['contact-form-id'] ) && 'block-template-' . $block_template !== $_POST['contact-form-id'] ) { // phpcs:Ignore WordPress.Security.NonceVerification.Missing -- check done by caller process_form_submission()
-					return false;
-				}
-			} elseif ( $block_template_part ) {
-				if ( isset( $_POST['contact-form-id'] ) && 'block-template-part-' . $block_template_part !== $_POST['contact-form-id'] ) { // phpcs:Ignore WordPress.Security.NonceVerification.Missing -- check done by caller process_form_submission()
-					return false;
-				}
-			} elseif ( isset( $_POST['contact-form-id'] ) && ( empty( $this->current_post ) || self::get_post_property( $this->current_post, 'ID' ) !== (int) sanitize_text_field( wp_unslash( $_POST['contact-form-id'] ) ) ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Missing -- check done by caller process_form_submission()
-				return false;
-			}
-		}
+		$field_ids = $this->get_field_ids();
 
 		// Initialize all these "standard" fields to null
 		$comment_author_email = $response->get_author_email();
