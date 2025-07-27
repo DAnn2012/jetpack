@@ -12,6 +12,7 @@ return [
     // PhanTypeMismatchArgument : 45+ occurrences
     // PhanPluginDuplicateConditionalNullCoalescing : 30+ occurrences
     // PhanTypeMismatchReturnProbablyReal : 7 occurrences
+
     // PhanTypeMismatchArgumentProbablyReal : 6 occurrences
     // PhanPluginDuplicateAdjacentStatement : 2 occurrences
     // PhanTypeConversionFromArray : 2 occurrences
