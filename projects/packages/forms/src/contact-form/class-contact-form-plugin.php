@@ -1514,7 +1514,7 @@ class Contact_Form_Plugin {
 			return $form->process_submission();
 		}
 		// If we don't have a JWT, we can't process the form.
-		return;
+		return false;
 	}
 
 	/**
