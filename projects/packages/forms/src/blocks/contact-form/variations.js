@@ -69,12 +69,20 @@ const variations = [
 				],
 			],
 			[
-				'jetpack/button',
-				{
-					text: __( 'Contact Us', 'jetpack-forms' ),
-					element: 'button',
-					lock: { remove: true },
-				},
+				'core/buttons',
+				{},
+				[
+					[
+						'core/button',
+						{
+							text: __( 'Contact Us', 'jetpack-forms' ),
+							tagName: 'button',
+							className: 'jetpack-form-submit-button',
+							type: 'submit',
+							element: 'button',
+						},
+					],
+				],
 			],
 		],
 		attributes: {
@@ -149,12 +157,20 @@ const variations = [
 				],
 			],
 			[
-				'jetpack/button',
-				{
-					text: __( 'Send RSVP', 'jetpack-forms' ),
-					element: 'button',
-					lock: { remove: true },
-				},
+				'core/buttons',
+				{},
+				[
+					[
+						'core/button',
+						{
+							text: __( 'Send RSVP', 'jetpack-forms' ),
+							tagName: 'button',
+							className: 'jetpack-form-submit-button',
+							type: 'submit',
+							element: 'button',
+						},
+					],
+				],
 			],
 		],
 		attributes: {
@@ -303,12 +319,20 @@ const variations = [
 				],
 			],
 			[
-				'jetpack/button',
-				{
-					text: __( 'Send', 'jetpack-forms' ),
-					element: 'button',
-					lock: { remove: true },
-				},
+				'core/buttons',
+				{},
+				[
+					[
+						'core/button',
+						{
+							text: __( 'Send', 'jetpack-forms' ),
+							tagName: 'button',
+							className: 'jetpack-form-submit-button',
+							type: 'submit',
+							element: 'button',
+						},
+					],
+				],
 			],
 		],
 		attributes: {
@@ -493,12 +517,20 @@ const variations = [
 				],
 			],
 			[
-				'jetpack/button',
-				{
-					text: __( 'Book appointment', 'jetpack-forms' ),
-					element: 'button',
-					lock: { remove: true },
-				},
+				'core/buttons',
+				{},
+				[
+					[
+						'core/button',
+						{
+							text: __( 'Book appointment', 'jetpack-forms' ),
+							tagName: 'button',
+							className: 'jetpack-form-submit-button',
+							type: 'submit',
+							element: 'button',
+						},
+					],
+				],
 			],
 		],
 		attributes: {
@@ -683,12 +715,20 @@ const variations = [
 				],
 			],
 			[
-				'jetpack/button',
-				{
-					text: __( 'Send Feedback', 'jetpack-forms' ),
-					element: 'button',
-					lock: { remove: true },
-				},
+				'core/buttons',
+				{},
+				[
+					[
+						'core/button',
+						{
+							text: __( 'Send Feedback', 'jetpack-forms' ),
+							tagName: 'button',
+							className: 'jetpack-form-submit-button',
+							type: 'submit',
+							element: 'button',
+						},
+					],
+				],
 			],
 		],
 		attributes: {
@@ -1049,12 +1089,20 @@ const variations = [
 				[ [ 'jetpack/label' ], [ 'jetpack/input', { type: 'checkbox' } ] ],
 			],
 			[
-				'jetpack/button',
-				{
-					text: __( 'Subscribe', 'jetpack-forms' ),
-					element: 'button',
-					lock: { remove: true },
-				},
+				'core/buttons',
+				{},
+				[
+					[
+						'core/button',
+						{
+							text: __( 'Subscribe', 'jetpack-forms' ),
+							tagName: 'button',
+							className: 'jetpack-form-submit-button',
+							type: 'submit',
+							element: 'button',
+						},
+					],
+				],
 			],
 		],
 		attributes: {},
