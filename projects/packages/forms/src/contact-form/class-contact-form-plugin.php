@@ -971,9 +971,9 @@ class Contact_Form_Plugin {
 				<?php if ( $is_dots_style ) : ?>
 					<?php for ( $i = 0; $i < $max_steps; $i++ ) : ?>
 						<?php $step_context = array( 'stepIndex' => $i ); ?>
-						<div class="jetpack-form-progress-indicator-step" 
-							data-wp-class--is-active="state.isStepActive" 
-							data-wp-class--is-completed="state.isStepCompleted" 
+						<div class="jetpack-form-progress-indicator-step"
+							data-wp-class--is-active="state.isStepActive"
+							data-wp-class--is-completed="state.isStepCompleted"
 							data-wp-context='<?php echo wp_json_encode( $step_context ); ?>'>
 							<div class="jetpack-form-progress-indicator-line"></div>
 							<div class="jetpack-form-progress-indicator-dot">
@@ -989,7 +989,7 @@ class Contact_Form_Plugin {
 						</div>
 					<?php endfor; ?>
 				<?php endif; ?>
-				<div class="jetpack-form-progress-indicator-progress" 
+				<div class="jetpack-form-progress-indicator-progress"
 					data-wp-style--width="<?php echo esc_attr( $progress_state ); ?>"></div>
 			</div>
 		</div>
@@ -3407,7 +3407,6 @@ class Contact_Form_Plugin {
 				__( 'You aren\'t authorized to do that.', 'jetpack-forms' ),
 				403
 			);
-
 			return;
 		}
 
@@ -3429,8 +3428,6 @@ class Contact_Form_Plugin {
 			foreach ( $fields as $single_field_name ) {
 				if ( isset( $export_data[ $single_field_name ][ $i ] ) ) {
 					$current_row[] = $export_data[ $single_field_name ][ $i ];
-				} else {
-					$current_row[] = '';
 				}
 			}
 
