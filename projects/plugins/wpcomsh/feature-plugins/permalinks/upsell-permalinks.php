@@ -12,25 +12,6 @@ declare( strict_types = 1 );
 
 use Automattic\Jetpack\Plans;
 
-const UPSELL_PAGE_TEMPLATE_ALLOWED_HTML = array(
-	'a'      => array(
-		'class'       => array(),
-		'href'        => array(),
-		'target'      => array(),
-		'data-target' => array(),
-		'rel'         => array(),
-	),
-	'div'    => array( 'class' => array() ),
-	'h1'     => array(),
-	'h2'     => array(),
-	'h3'     => array(),
-	'li'     => array(),
-	'p'      => array(),
-	'strong' => array(),
-	'sup'    => array(),
-	'ul'     => array( 'class' => array() ),
-);
-
 /**
  * Upsell page for options-permalink.php
  */
