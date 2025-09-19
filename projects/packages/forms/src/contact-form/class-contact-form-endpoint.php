@@ -102,6 +102,20 @@ class Contact_Form_Endpoint extends \WP_REST_Posts_Controller {
 			),
 		);
 
+		// Conditionally add Hostinger Reach integration behind feature flag.
+		if ( Jetpack_Forms::is_hostinger_reach_enabled() ) {
+			$supported_integrations['hostinger-reach'] = array(
+				'type'                    => 'plugin',
+				'file'                    => 'hostinger-reach/hostinger-reach.php',
+				'settings_url'            => 'admin.php?page=hostinger-reach#/home',
+				'marketing_redirect_slug' => null,
+				'title'                   => __( 'Hostinger Reach', 'jetpack-forms' ),
+				'subtitle'                => __( 'Send newsletters and marketing emails via Hostinger Reach.', 'jetpack-forms' ),
+				// Overriding this may automatically enable/disable the integration when editing a form.
+				'enabled_by_default'      => false,
+			);
+		}
+
 		/**
 		 * Filters the list of supported integrations available in Jetpack Forms.
 		 *
@@ -1008,6 +1022,10 @@ class Contact_Form_Endpoint extends \WP_REST_Posts_Controller {
 				// Add MailPoet lists to details
 				$status['details']['lists'] = MailPoet_Integration::get_all_lists();
 				break;
+			case 'hostinger-reach':
+				// Hostinger Reach is a plugin that requires additional setup/connection.
+				$status['needsConnection'] = true;
+				break;
 		}
 
 		return $status;
@@ -1051,6 +1069,7 @@ class Contact_Form_Endpoint extends \WP_REST_Posts_Controller {
 			'formsResponsesUrl'       => $switch->get_forms_admin_url(),
 			'preferredView'           => $switch->get_preferred_view(),
 			'isMailPoetEnabled'       => Jetpack_Forms::is_mailpoet_enabled(),
+			'isHostingerReachEnabled' => Jetpack_Forms::is_hostinger_reach_enabled(),
 			// From config in class-dashboard.php.
 			'blogId'                  => get_current_blog_id(),
 			'gdriveConnectSupportURL' => esc_url( Redirect::get_url( 'jetpack-support-contact-form-export' ) ),
